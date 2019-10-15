@@ -1,0 +1,189 @@
+/*=============================================
+=            SVG Clock Style                  =
+=============================================*/
+@font-face{
+    src: url('./font/Acrom-Regular.ttf');
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,greek);
+.outer {
+   fill: transparent; 
+  stroke-width: 4;
+  transition: stroke-dashoffset 1s;
+  -webkit-animation-play-state: running; 
+  animation-play-state: running;
+}
+
+.outer-clock {
+ /*  fill: transparent; */
+  stroke-width: 1;
+  stroke: rgb(1, 14, 58),;
+  opacity: 0.95; }
+
+.outer-minutes {
+  opacity: 0.75; }
+
+.outer-hours {
+  opacity: 0.95; }
+
+.outer-seconds {
+  opacity: 0.95; }
+
+.clock {
+  position: relative;
+  height: 365px; }
+  .clock svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto; }
+
+
+
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  background:linear-gradient(90deg, rgb(14, 27, 72) 0%, #49506b 90%);
+  color: #333;
+  font-family: 'Roboto', Helvetica, arial;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px; 
+overflow: hidden;
+transition: filter 500ms;}
+  body a {
+    color: inherit;
+    text-decoration: none; }
+html,body{
+height: 100%;
+padding: 0;
+margin:0;
+}
+
+.min{
+    width: 249px;
+    height: 249px;
+    border-radius: 100%;
+    background: #353d5dd4;
+    position: absolute;
+    font-size: 5rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttons{
+    display: flex;
+    widows: 500px;
+    position: absolute;
+    bottom: 0;
+}
+#start,#abort,#stetings{
+    width: 150px;
+    height: 50px;
+    color: white;
+    background: #19924f;
+    margin: 30px;
+    display: inline-block;
+    outline: none;  
+    border: none;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    cursor: pointer; 
+    transition: 500ms;
+}
+
+
+#start:hover,#abort:hover,#stetings:hover{
+    background: #2c9e5f;
+    transform: scale(1.05);
+}
+
+#progress{
+    position: absolute;
+    background: white;
+    top: 18px;
+    width: 60%;
+    height: 50px;
+    border-radius: 39px;
+    display: flex;
+    align-items: center;
+
+}
+
+#progress ul {
+    list-style:none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    height: 90%;
+    
+}
+#progress ul li {
+    width: 10%;
+    background: rgb(51, 168, 51);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.8rem;
+}
+
+#tasks{
+    background: white;
+    border-radius: 20px;
+    height: 50%;
+    width: 20%;
+    position: absolute;
+    left: 30px;
+    text-align: center;
+}
+
+#form-stetings{
+  position: absolute;
+  background: white;
+  height: 60%;
+  width: 50%;
+  transition:  500ms;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+#form-stetings form{
+  background: #eee;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+#form-stetings form input[type="submit"]{
+  background: #49506b;
+  color: white;
+  font-size: 1rem;
+  display: block;
+  margin:0 auto;
+  outline: none;
+  border:none;
+  width: 80px;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 500ms;
+  border-radius: 8px;
+}
+#form-stetings form input[type="submit"]:hover{
+  background: #74788a;
+  transform: scale(1.1);
+}
+
+#form-stetings div{
+  display: inline-block;
+  margin: 20px;
+}

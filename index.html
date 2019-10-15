@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="progress">
+        <ul>
+            <li>&check;</li>
+            <li>&check;</li>
+            <li>&check;</li>
+            <li>&check;</li>
+        </ul>
+    </div>
+    <svg width="400" height="400">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#00bc9b" />
+                <stop offset="50%" stop-color="#5eaefd" />
+                <stop offset="100%" stop-color="#c922bc" />
+            </linearGradient>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color: #49506b;stop-opacity: 1;"></stop>
+                <stop offset="100%" style="stop-color: rgb(24, 37, 83);stop-opacity: .4;"></stop>
+            </linearGradient>
+            <filter id="f4" x="0" y="0" width="200%" height="200%">
+                <feOffset result="offOut" in="SourceGraphic" dx="10" dy="4" />
+                <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                    values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+                <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <title>Clock</title>
+        <desc>SVG clock</desc>
+
+        <circle fill="url(#grad1)" filter="url(#f4)" style="  stroke-dasharray: 945; stroke-dashoffset: 0;"
+            class="outer-clock" cx="200" cy="200" r="150">
+        </circle>
+        <circle style="stroke-dasharray: 945; stroke-dashoffset: 0;" class="outer outer-seconds" cx="200" cy="200"
+            r="150" transform="rotate(-90,200, 200)" stroke="url(#gradient)">
+        </circle>
+
+    </svg>
+    <div class="min"></div>
+    <div id="buttons">
+        <button id="start">Start</button>
+        <button id="abort">Abort</button>
+        <button id="stetings">Stetings</button>
+    </div>
+
+    <div id="form-stetings" style="opacity: 0;">
+        <span id="close" style="font-size: 2rem; cursor: pointer; position: absolute; margin-right: 15px; right: 0;">&times;</span>
+        <form  onsubmit="return false">
+            <h2 style="text-align: center;">pomoDoro stetings</h2>
+
+            <div>
+                <label for="Focustime">Focus time</label>
+                <input type="number" name="Focustime" id="Focustime" required>
+
+            </div>
+            <div>
+
+                <label for="Relaxtime">Relax time</label>
+                <input type="number" name="Relaxtime" id="Relaxtime" required>
+
+            </div>
+            <div>
+                <label for="Intervals">Intervals</label>
+                <input type="number" name="Intervals" id="Intervals" required>
+
+            </div>
+
+            <div>
+
+                <label for="Longrelaxtime">Long relax time</label>
+                <input type="number" name="Longrelaxtime" id="Longrelaxtime" required>
+
+            </div>
+
+            <input type="submit" value="Ready!">
+        </form>
+    </div>
+    <!-- <div id="tasks">
+    <h3>Task</h3>
+</div> -->
+    <script src="app.js"></script>
+</body>
+
+</html>
