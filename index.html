@@ -12,12 +12,10 @@
 <body>
     <div id="progress">
         <ul>
-            <li>&check;</li>
-            <li>&check;</li>
-            <li>&check;</li>
-            <li>&check;</li>
+      
         </ul>
     </div>
+    <span id="message">Ready for work</span>
     <svg width="400" height="400">
         <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -50,13 +48,12 @@
     </svg>
     <div class="min"></div>
     <div id="buttons">
-        <button id="start">Start</button>
-        <button id="abort">Abort</button>
+        <button id="start" style="display: none;">Start</button>
         <button id="stetings">Stetings</button>
     </div>
 
     <div id="form-stetings" style="opacity: 0;">
-        <span id="close" style="font-size: 2rem; cursor: pointer; position: absolute; margin-right: 15px; right: 0;">&times;</span>
+        <span class="close" style="font-size: 2rem; cursor: pointer; position: absolute; margin-right: 15px; right: 0;">&times;</span>
         <form  onsubmit="return false">
             <h2 style="text-align: center;">pomoDoro stetings</h2>
 
@@ -73,7 +70,7 @@
             </div>
             <div>
                 <label for="Intervals">Intervals</label>
-                <input type="number" name="Intervals" id="Intervals" required>
+                <input type="number" name="Intervals" id="Intervals" max="4" required>
 
             </div>
 

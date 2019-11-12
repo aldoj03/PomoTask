@@ -1,10 +1,7 @@
 /*=============================================
 =            SVG Clock Style                  =
 =============================================*/
-@font-face{
-    src: url('./font/Acrom-Regular.ttf');
-}
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,greek);
+
 .outer {
    fill: transparent; 
   stroke-width: 4;
@@ -80,7 +77,7 @@ margin:0;
     position: absolute;
     bottom: 0;
 }
-#start,#abort,#stetings{
+#start,#skip,#stetings{
     width: 150px;
     height: 50px;
     color: white;
@@ -96,7 +93,7 @@ margin:0;
 }
 
 
-#start:hover,#abort:hover,#stetings:hover{
+#start:hover,#skip:hover,#stetings:hover{
     background: #2c9e5f;
     transform: scale(1.05);
 }
@@ -105,12 +102,12 @@ margin:0;
     position: absolute;
     background: white;
     top: 18px;
-    width: 60%;
+    width: 80%;
     height: 50px;
     border-radius: 39px;
     display: flex;
     align-items: center;
-
+    display: none;
 }
 
 #progress ul {
@@ -124,7 +121,7 @@ margin:0;
     
 }
 #progress ul li {
-    width: 10%;
+    width: 50px;
     background: rgb(51, 168, 51);
     border-radius: 15px;
     display: flex;
@@ -132,6 +129,19 @@ margin:0;
     align-items: center;
     color: white;
     font-size: 1.8rem;
+    opacity: .2;
+
+    text-align: center;
+}
+#progress ul li.relax {
+    width: 50px;
+    background: rgb(212, 155, 49);
+ 
+}
+#progress ul li.longrelax {
+    width: 50px;
+    background: rgb(219, 55, 124);
+ 
 }
 
 #tasks{
@@ -147,11 +157,12 @@ margin:0;
 #form-stetings{
   position: absolute;
   background: white;
-  height: 60%;
+  
   width: 50%;
   transition:  500ms;
   padding: 15px;
   border-radius: 12px;
+  display: none;
 }
 
 #form-stetings form{
@@ -186,4 +197,11 @@ margin:0;
 #form-stetings div{
   display: inline-block;
   margin: 20px;
+}
+
+#message{
+  color: whitesmoke;
+  background: yellowgreen;
+  padding: 8px;
+  border-radius: 6px;
 }
