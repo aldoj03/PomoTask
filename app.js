@@ -7,6 +7,7 @@ window.onload = () => {
     Intervals: 0,
     Longrelaxtime: 0
   };
+
   var minInitial;
   var focus;
   var relax;
@@ -14,9 +15,14 @@ window.onload = () => {
   var longrelax;
   var seconds;
   var min;
-  var status = "focus";
+  var status ={ message:  "focus", color: 'green'};
   var play = false;
   var stage = 0;
+  var audio = {
+    first:  document.querySelector("#audio-1"),
+    
+    
+  }
   var segElement = document.querySelector(".outer-seconds");
   document.getElementById("start").addEventListener("click", () => {
     start();
@@ -39,9 +45,11 @@ window.onload = () => {
 
     seconds = 0;
     play = true;
+   
   }
 
   function endInterval() {
+    audio.first.play();
     setStage(stage);
 
     if(stage <= intervals * 2)
@@ -56,6 +64,7 @@ window.onload = () => {
 
   function start() {
     init();
+    audio.first.pause()
     var tmp = setInterval(() => {
       if (play == true) {
         segElement.style.strokeDashoffset -= 15.7;
@@ -102,6 +111,7 @@ window.onload = () => {
     show([document.getElementById("form-stetings")]);
 
     submitbutton.addEventListener("submit", ev => {
+      ev.preventDefault();
       if (ev.lenght) {
         show([document.getElementById("start")]);
       }
@@ -178,7 +188,8 @@ window.onload = () => {
   //*SHOW MESSAGE */
   function showEstageMessage() {
     var element = document.querySelector("#message");
-    element.innerHTML = status;
+    element.innerHTML = status.message;
+    element.style.background = status.color;
   }
 
   function renderAllstages(interv) {
@@ -209,16 +220,21 @@ window.onload = () => {
   function calculateStage() {
     if (stage % 2 == 0 || stage == 0) {
       minInitial = focus;
-      status = "focus";
+      status.message = "focus";
+      status.color = 'rgb(51, 168, 51)'
     }
     if (stage % 2 != 0) {
       minInitial = relax;
-      status = "relax";
+      status.message = "relax";
+      status.color = 'rgb(212, 155, 49)'
+
     }
 
     if (stage >= intervals * 2) {
       minInitial = longrelax;
-      status = "long relax";
+      status.message = "long relax";
+      status.color = 'rgb(219, 55, 124)';
+
     }
 
     renderMin(minInitial);
